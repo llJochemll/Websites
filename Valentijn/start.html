@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="Jochem" />
+  <meta charset="UTF-8">
+
+	<title>Valentijn - main</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script>
+	var checkedCount = 0;
+	function checkCount(checked) {
+		if(checked){
+			checkedCount = checkedCount + 1;
+		}else{
+			checkedCount = checkedCount - 1;
+		}
+
+		if(checkedCount == 3){
+			checkedCount = checkedCount - 1;
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	function createImg(formVal){
+		var strDescription = "Dit ben ik. Mijn naam is Jochem  De Jaeghere, maar mijn vrienden noemen me ";
+		with(formVal.naam){
+			if(value == ""){
+				alert("Niet alles ingevuld");
+				return false;
+			}else{
+				strDescription = strDescription + value.toString() + ". Ik ben ";
+			}
+		}
+		with(formVal.typeC){
+			if(value == ""){
+				alert("Niet alles ingevuld");
+				return false;
+			}else{
+				if(value == "gespierd"){
+					document.getElementById("character").src = "Data/Images/typeGespierd.png";
+				}else{
+					document.getElementById("character").src = "Data/Images/typeGeleerd.png";
+				}
+			}
+		}
+		with(formVal.hairColor){
+			switch (value) {
+				case "BL":
+					document.getElementById("hair").src = "Data/Images/blonde.jpg";
+				break;
+				case "BR":
+					document.getElementById("hair").src = "Data/Images/brown.jpg";
+				break;
+				case "ZW":
+					document.getElementById("hair").src = "Data/Images/black.jpg";
+				break;
+				case "RO":
+					document.getElementById("hair").src = "Data/Images/red.jpg";
+				break;
+				default:
+			}
+		}
+
+		var count = 0;
+		with(formVal.slim){
+
+			if(checked == false){
+			}else{
+				count = count + 1;
+				strDescription = strDescription + "slim";
+				if(count == 1){
+					strDescription = strDescription + " en ";
+				}
+			}
+		}
+		with(formVal.sterk){
+
+			if(checked == false){
+			}else{
+				count = count + 1;
+				strDescription = strDescription + "sterk";
+				if(count == 1){
+					strDescription = strDescription + " en ";
+				}
+			}
+		}
+		with(formVal.grappig){
+
+			if(checked == false){
+			}else{
+				count = count + 1;
+				strDescription = strDescription + "grappig";
+				if(count == 1){
+					strDescription = strDescription + " en ";
+				}
+			}
+		}
+		with(formVal.rijk){
+
+			if(checked == false){
+			}else{
+				count = count + 1;
+				strDescription = strDescription + "rijk";
+				if(count == 1){
+					strDescription = strDescription + " en ";
+				}
+			}
+		}
+		with(formVal.verlegen){
+
+			if(checked == false){
+			}else{
+				count = count + 1;
+				strDescription = strDescription + "verlegen";
+				if(count == 1){
+					strDescription = strDescription + " en ";
+				}
+			}
+		}
+
+		if(count < 2){
+			alert("Niet alles ingevuld");
+			return false;
+		}
+
+		strDescription = strDescription + ". Klik op de knop hieronder om me te contacteren.";
+		document.getElementById("main").innerHTML = "<h2>" + strDescription + "</h2> <button type=\"button\" href=\"form.html\" onclick=\"location.href=\'form.html\';\">Contact</button> ";
+
+		alert("Bedankt!");
+
+		return false;
+	}
+    </script>
+
+	<img src="Data/Images/backV.jpg" class="backImg" id="back">
+
+	<div class="mainBox" id="main">
+        <h1>Hoe ziet je ideale man eruit?</h1>
+        <form onsubmit="return createImg(this)" autocomplete="off">
+			<h2>Wat is zijn voornaam?</h2>
+			<input name="naam" type="text"/>
+			<h2>Wat type is hij?</h2>
+			<input id="typeC" name="typeC" type="radio" value="gespierd"/>Gespierd
+            <input id="typeC" name="typeC" type="radio" value="geleerd"/>Geleerd
+            <h2>Wat is zijn haarkleur?</h2>
+            <select name="hairColor">
+                <option value="BL">Blond</option>
+                <option value="BR">Bruin</option>
+                <option value="ZW">Zwart</option>
+                <option value="RO">Ros</option>
+            </select>
+			<h2>Wat zijn zijn twee belangrijkste eigenschappen?</h2>
+			<input id="prop" name="slim" type="checkbox" value="1" onclick="return checkCount(this.checked)"/>Slim<br />
+            <input id="prop" name="sterk" type="checkbox" value="0" onclick="return checkCount(this.checked)"/>Sterk<br />
+			<input id="prop" name="grappig" type="checkbox" value="0" onclick="return checkCount(this.checked)"/>Grappig<br />
+			<input id="prop" name="rijk" type="checkbox" value="0" onclick="return checkCount(this.checked)"/>Rijk<br />
+			<input id="prop" name="verlegen" type="checkbox" value="0" onclick="return checkCount(this.checked)"/>Verlegen<br />
+			<br/><input type="submit" value="Verzenden"/>
+        </form>
+	</div>
+
+	<div class="characterBox">
+		<img src="Data/Images/empty.png" class="characterImg" id="character">
+		<img src="Data/Images/empty.png" class="hairImg" id="hair">
+	</div>
+
+
+</body>
+</html>

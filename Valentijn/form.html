@@ -3,79 +3,98 @@
 <head>
 	<meta http-equiv="content-type" content="text/html" />
 	<meta name="author" content="Jochem" />
-    <meta charset="UTF-8"> 
+	<meta charset="UTF-8">
 
 	<title>Valentijn - form</title>
-    
-    <!--CSS-->
-    <link rel="stylesheet" href="styles.css">
+
+	<!--CSS-->
+	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body onload="init()">
-    <script>
-		
-		function init(){
+	<script>
+	muteV = false;
+
+	function init(){
+		audioV.play();
+	}
+
+	function mute(){
+		audioM = document.getElementById("audioM");
+		audioV = document.getElementById("audioV");
+		muteImg = document.getElementById("mute");
+		if(muteV){
+			muteImg.src = "Data/Images/mute.png";
+			muteV = false;
+			audioV.muted = false;
+			audioM.muted = false;
+		}else{
+			muteImg.src = "Data/Images/play.png";
+			muteV = true;
+			audioV.muted = true;
+			audioM.muted = true;
+		}
+	}
+
+	function adjustText(geslachtId){
+		audioM = document.getElementById("audioM");
+		audioM.loop = true;
+		audioV = document.getElementById("audioV");
+		audioV.loop = true;
+		if(geslachtId == 0){
+			document.getElementById("t3").innerHTML = "Waarom ben jij de ideale " + "man" + "?";
+			document.getElementById("back").src = "Data/Images/backM.jpg";
+			audioM.play();
+			audioV.pause();
+
+		}else{
+			document.getElementById("t3").innerHTML = "Waarom ben jij de ideale " + "vrouw" + "?";
+			document.getElementById("back").src = "Data/Images/backV.jpg";
 			audioV.play();
+			audioM.pause();
 		}
-		
-        function adjustText(geslachtId){
-			audioM = document.getElementById("audioM");
-			audioM.loop = true;
-			audioV = document.getElementById("audioV");
-			audioV.loop = true;
-            if(geslachtId == 0){
-                document.getElementById("t3").innerHTML = "Waarom ben jij de ideale " + "man" + "?";
-				document.getElementById("back").src = "Data/Images/backM.jpg";
-				audioM.play();
-				audioV.pause();
-				
-            }else{
-                document.getElementById("t3").innerHTML = "Waarom ben jij de ideale " + "vrouw" + "?";
-				document.getElementById("back").src = "Data/Images/backV.jpg";
-				audioV.play();
-				audioM.pause();
-            }
-        }
-		
-		function checkForm(formVal){
-			with(formVal.naam){
-				if(value == ""){
-					alert("Mag ik je naam niet weten?");
-					return false;
-				}
-			}
-			with(formVal.geslacht){
-				if(value == "man"){
-					alert("Sorry voor de verloren moeite, maar ik ben geen homo ;) Omdat ik een lieve jongen ben zal ik je formulier toch lezen.");
-				}
+	}
+
+	function checkForm(formVal){
+		with(formVal.naam){
+			if(value == ""){
+				alert("Mag ik je naam niet weten?");
+				return false;
 			}
 		}
-    </script>
-    
+		with(formVal.geslacht){
+			if(value == "man"){
+				alert("Sorry voor de verloren moeite, maar ik ben geen homo ;) Omdat ik een lieve jongen ben zal ik je formulier toch lezen.");
+			}
+		}
+	}
+	</script>
+
 	<img src="Data/Images/backV.jpg" class="backImg" id="back">
-    
-    <div class="mainBox">
-    <h1></h1>
-    <form method="POST" action="mailto:lololol@hotmail.com?subject=formulier" enctype="text/plain" onsubmit="return checkForm(this)">
-        <h2>Naam:</h2>
-        	<input name="naam" type="text"/>
-        <h2>Gelacht:</h2>
-            <input id="geslacht" name="geslacht" type="radio" value="man" onmousedown="adjustText(0)"/>Man
-            <input id="geslacht" name="geslacht" type="radio" value="vrouw" onmousedown="adjustText(1)" checked = "true"/>Vrouw
-        <h2 id="t3">Waarom ben jij de ideale vrouw?</h2>
-        	<textarea name="motivatie" cols="40" rows="10"></textarea>
-        
-        <br/><input type="submit" value="Verzenden"/>
-    </form>
-	
-	<!--music-->
-	<audio id="audioM">
-		<source src="Data/Sounds/musicM.mp3" type="audio/mpeg">
-	</audio>
-	<audio id="audioV">
-		<source src="Data/Sounds/musicV.mp3" type="audio/mpeg">
-	</audio>
-    </div>
-</body>
-    
-</html>
+
+	<div class="mainBox">
+		<h1></h1>
+		<form method="POST" action="mailto:jochemdejaeghere@hotmail.com?subject=formulier" enctype="text/plain" onsubmit="return checkForm(this)" autocomplete="off">
+			<h2>Naam:</h2>
+			<input name="naam" type="text"/>
+			<h2>Gelacht:</h2>
+			<input id="geslacht" name="geslacht" type="radio" value="man" onmousedown="adjustText(0)"/>Man
+			<input id="geslacht" name="geslacht" type="radio" value="vrouw" onmousedown="adjustText(1)" checked = "true"/>Vrouw
+			<h2 id="t3">Waarom ben jij de ideale vrouw?</h2>
+			<textarea name="motivatie" cols="40" rows="10"></textarea>
+
+			<br/><input type="submit" value="Verzenden"/>
+		</form>
+
+		<!--music-->
+		<audio id="audioM">
+			<source src="Data/Sounds/musicM.mp3" type="audio/mpeg">
+			</audio>
+			<audio id="audioV">
+				<source src="Data/Sounds/musicV.mp3" type="audio/mpeg">
+				</audio>
+
+				<img src="Data/Images/mute.png" class="muteBtn" id="mute" onmousedown="mute()">
+			</div>
+		</body>
+		</html>
