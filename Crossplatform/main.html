@@ -1,15 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta http-equiv="content-type" content="text/html" />
-  	<meta name="author" content="Jochem" />
+    <meta name="author" content="Jochem" />
     <meta charset="UTF-8">
 
-  	<title></title>
+    <title></title>
 
-    <link href="styles.css" rel="stylesheet">
-  </head>
-  <body>
-    
-  </body>
+    <link href="styleBase.css" rel="stylesheet">
+    <link href="styleMonitor.css" rel="stylesheet" id="varCss">
+</head>
+
+<script>
+function preview(id){
+
+}
+
+function onSizeChange(){
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    if(width/height > 4/3 && width > 540){
+        document.getElementById("varCss").href = "styleMonitor.css";
+    }else if (width/height > 3/4 && width > 540) {
+        document.getElementById("varCss").href = "styleSmall.css";
+    }else{
+        document.getElementById("varCss").href = "styleHandheld.css";
+    }
+}
+
+window.onresize = function() {
+    onSizeChange();
+};
+</script>
+
+<body>
+    <div id="nav">
+        <li><a href="#" onclick="shortCut(0);" onmouseover="preview(0);" onmouseout="undoShort()">Console peasant</a>
+            <ul>
+
+            </ul>
+        </li>
+        <li><a href="#" onclick="shortCut(1);" onmouseover="preview(1);" onmouseout="undoShort()">Script kiddie(dayZ)</a>
+            <ul>
+
+            </ul>
+        </li>
+        <li><a href="#" onclick="shortCut(2);" onmouseover="preview(2);" onmouseout="undoShort()">Ainsley</a>
+            <ul>
+
+            </ul>
+        </li>
+    </div>
+</body>
 </html>
