@@ -1,0 +1,75 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background-image: url("Data/pcBack.jpg");
+    background-repeat:repeat;
+    background-size: 100%;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    right: 10%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: #003388;
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #0055FF;
+    color: white;
+}
+
+.mainImg{
+    width: 60%;
+    height: auto;
+    left: 10%;
+    position: relative;
+}
+
+.menuBox{
+    right: 10%;
+    height: 100%;
+    width: 30%;
+    position: relative;
+}
+
+.titleBox{
+    top: 5%;
+    left: 10%;
+    width: 60%;
+    position: relative;
+    text-align: center;
+    font-family: monospace;
+    font-size: 500%;
+    height: 5%
+}
+
+.titleBox p{
+    background-color: inherit;;
+    color: #FFFFFF;
+}
+
+.backImg{
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    position: absolute;
+}
