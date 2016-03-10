@@ -12,12 +12,13 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 20%;
+    width: 15%;
     right: 10%;
-    background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
+    background: rgba(200, 200, 200, .5);
+    position: absolute;
+    top: 27.25%;
+    height: 40%;
+    overflow: hidden;
 }
 
 li a {
@@ -28,13 +29,15 @@ li a {
 }
 
 li a.active {
-    background-color: #003388;
+    background: rgba(150, 150, 150, .5);
     color: white;
+    transform: scale(1.06,1.06);
 }
 
 li a:hover:not(.active) {
-    background-color: #0055FF;
+    background: rgba(210, 210, 210, .5);
     color: white;
+    transform: scale(1.03,1.03);
 }
 
 .mainImg{
@@ -44,27 +47,35 @@ li a:hover:not(.active) {
     position: relative;
 }
 
-.menuBox{
-    right: 10%;
-    height: 100%;
-    width: 30%;
-    position: relative;
-}
-
 .titleBox{
     top: 5%;
     left: 10%;
     width: 60%;
+    height: 10%;
     position: relative;
-    text-align: center;
+    text-align: center;;
     font-family: monospace;
     font-size: 500%;
-    height: 5%
+    color: #FFFFFF;
 }
 
-.titleBox p{
-    background-color: inherit;;
-    color: #FFFFFF;
+.text{
+    left: 10%;
+    width: 60%;
+    font-style:italic;
+    color: rgba(100, 100, 100, 1);
+    font-family: monospace;
+    position: relative;
+    text-align: left;
+}
+
+h5{
+    font-size: 200%;
+    transition: all 1s ease-in-out;
+}
+h5:hover{
+    font-size: 240%;
+    width: 120%;
 }
 
 .backImg{

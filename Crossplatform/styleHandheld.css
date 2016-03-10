@@ -1,0 +1,50 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background-image: url("Data/mobileBack.jpg");
+    background-position: center;
+    background-size: auto;;
+    background-repeat: no-repeat;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+ul{
+    display: none;
+}
+
+.mainImg{
+    width: 80%;
+    height: auto;
+    left: 10%;
+    position: relative;
+}
+
+.titleBox{
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 10%;
+    position: relative;
+    text-align: center;;
+    font-family: monospace;
+    font-size: 500%;
+    color: #FFFFFF;
+}
+
+.text{
+    left: 10%;
+    width: 80%;
+    font-style:italic;
+    color: #FFFFFF;
+    font-family: monospace;
+    position: relative;
+    text-align: left;
+}
+
+.backImg{
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    position: absolute;
+}
