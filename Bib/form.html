@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bib-reserve</title>
+
+        <link href="CSS/styles.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="Data/favicon.png"/>
+    </head>
+    <body>
+        <script type="text/javascript">
+        function checkForm(formVal){
+            with(formVal.nameU){
+                if(value == ""){
+                    alert("You need to enter your name");
+                    return false;
+                }
+            }
+            with(formVal.book){
+                if(value == ""){
+                    alert("You need to enter your name");
+                    return false;
+                }
+            }
+            with(formVal.duration){
+                if(value == ""){
+                    alert("You need to select a duration");
+                    return false;
+                }
+            }
+        }
+        </script>
+        <img src="Data/backButton.png" alt="Something went wrong" href="form.html" onclick="location.href='main.html'" class="backButton"/>
+        <img src="Data/background.jpg" alt="Something went wrong" class="backImg"/>
+        <div class="formBox">
+            <form method="POST" action="mailto:jochemdejaeghere@hotmail.com?subject=formulier" enctype="text/plain" onsubmit="return checkForm(this)" autocomplete="off">
+                <h2>Your name:</h2>
+                <input name="nameU" type="text"/>
+                <h2>The book:</h2>
+                <select name="book">
+                    <option value="1">Harry potter</option>
+                    <option value="2">Matilda</option>
+                    <option value="3">Hunder games</option>
+                </select>
+                <h2>Duration:</h2>
+                <input id="duration" name="duration" type="radio" value="1"/>1 week
+                <input id="duration" name="duration" type="radio" value="2"/>2 weeks
+                <input id="duration" name="duration" type="radio" value="3"/>3 weeks
+                <input id="duration" name="duration" type="radio" value="4"/>4 weeks
+                <h2 id="t3">What made you want to read this book? (optional)</h2>
+                <textarea name="motivatie" cols="60" rows="15"></textarea>
+
+                <br/><input type="submit" value="Reserve"/>
+            </form>
+        </div>
+    </body>
+</html>
