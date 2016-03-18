@@ -1,0 +1,75 @@
+html{
+    min-height: 520px;
+}
+
+body{
+}
+
+.backImg{
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    vertical-align: middle;
+    z-index: 0;
+}
+
+.greyImg{
+    top: 0%;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    position: fixed;
+    vertical-align: middle;
+    z-index: 1;
+}
+
+.menuImg{
+    top: 15%;
+    left: 15%;
+    width: 25%;
+    z-index: 2;
+    position: fixed;
+    transition: all 1s ease-in-out;
+}
+.menuImg:hover{
+    width: 30%;
+    top: 5%;
+    left: 12.5%;
+}
+
+.reserveImg{
+    top: 15%;
+    right: 15%;
+    width: 25%;
+    z-index: 2;
+    position: fixed;
+    transition: all 1s ease-in-out;
+}
+.reserveImg:hover{
+    width: 30%;
+    right: 12.5%;
+}
+
+.aboutImg{
+    top: 35%;
+    right: 15%;
+    width: 25%;
+    z-index: 2;
+    position: fixed;
+    transition: all 1s ease-in-out;
+}
+.aboutImg:hover{
+    width: 30%;
+    right: 12.5%;
+}
+
+.insideImg{
+    top: 55%;
+    right: 15%;
+    width: 25%;
+    z-index: 2;
+    position: fixed;
+    transition: all 1s ease-in-out;
+}

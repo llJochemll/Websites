@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta name="author" content="Jochem" />
+    <meta charset="UTF-8">
+
+  	<title>Reservation</title>
+
+    <link href="CSS/reserve.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="Data/favicon.png"/>
+  </head>
+  <body>
+      <script>
+      function checkForm(formVal){
+          with(formVal.nameU){
+              if(value == ""){
+                  alert("Please fill in your name");
+                  return false;
+              }
+          }
+          with(formVal.personCount){
+              if(value == ""){
+                  alert("Please fill in how many persons you'd like to reserve for");
+                  return false;
+              }
+              if(isNaN(parseInt(value))){
+                  alert("Please fill in a number for number of persons");
+                  return false;
+              }
+          }
+          with(formVal.duration){
+              if(value == ""){
+                  alert("Please select a duration");
+                  return false;
+              }
+          }
+
+          location.href = "main.html";
+      }
+      </script>
+
+      <img src="Data/background.jpg" alt="Something went wrong" class="backImg"/>
+      <img src="Data/back.png" alt="Something went wrong" href="form.html" onclick="location.href='main.html'" class="backButton"/>
+
+      <div class="formBox">
+          <form method="POST" action="mailto:jochemdejaeghere@hotmail.com?subject=formulier" enctype="text/plain" onsubmit="return checkForm(this)" autocomplete="off">
+              <h2>Your name:</h2>
+              <input name="nameU" type="text"/>
+              <h2>Number of persons</h2>
+              <input name="personCount" type="text"/>
+              <h2>Time:</h2>
+              <select name="hour">
+                  <option value="0">00</option>
+                  <option value="0">01</option>
+                  <option value="0">02</option>
+                  <option value="0">03</option>
+                  <option value="0">04</option>
+                  <option value="0">05</option>
+                  <option value="0">06</option>
+                  <option value="0">07</option>
+                  <option value="0">08</option>
+                  <option value="0">09</option>
+                  <option value="0">10</option>
+                  <option value="0">11</option>
+                  <option value="0">12</option>
+              </select>
+              <select name="minute">
+                  <option value="0">00</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+              </select>
+              <select name="book">
+                  <option value="0">AM</option>
+                  <option value="1">PM</option>
+              </select>
+              <h2>Duration:</h2>
+              <input name="duration" type="radio" value="1"/>1 hour
+              <input name="duration" type="radio" value="2"/>2 hours
+              <input name="duration" type="radio" value="3"/>3 hours
+              <input name="duration" type="radio" value="4"/>4 hours
+              <h2 id="t3">Comments/special requests:</h2>
+              <textarea name="motivatie" cols="60" rows="15"></textarea>
+
+              <br/><input type="submit" value="Reserve"/>
+          </form>
+      </div>
+  </body>
+</html>
