@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>jQuery Mobile page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="themes/superhero.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<body>
+    <script>
+        function reveal() {
+            var allPics = document.querySelectorAll(".heroPic");
+            console.log("reveal");
+            for (var i = 0; i < allPics.length; i++) {
+                allPics[i].style.visibility = "visible";
+            }
+        }
+    </script>
+
+    <div class="introBox">
+        <i>"Once upon a time, there was a legendary creature. It lived in a cage somewhere on a big island. Then one day, while doing it's duty to protect the weak, it was brutally murdered by a evil race known as humans. But all you need to know is that you're not worthy."</i>
+
+    </div>
+
+    <div class="heroPic" onclick="reveal()">
+        <img src="Images/superhero.jpg" class="heroPic">
+    </div>
+
+    <div class="introBox">
+        <i>I won't show him, like I said, you're not worthy.</i>
+    </div>
+
+    <div class="heroPic">
+        <img src="Images/superhero.jpg" class="heroPic">
+    </div>
+
+    <div class="introBox">
+        <i>Stil scrolling? I hope you like blue.</i>
+    </div>
+
+    <div class="heroPic">
+        <img src="Images/superhero.jpg" class="heroPic">
+    </div>
+
+    <div class="introBox">
+        <i>Don't you have something better to do?.</i>
+    </div>
+
+    <div class="heroPic">
+        <img src="Images/superhero.jpg" class="heroPic">
+    </div>
+
+    <div class="introBox">
+        <i>Would you please get a life.</i>
+    </div>
+
+    <div class="heroPic">
+        <img src="Images/superhero.jpg" class="heroPic">
+    </div>
+
+    <div class="introBox">
+        <i>I lied.</i>
+    </div>
+
+    <div class="heroPic">
+        <img src="Images/superhero.jpg" class="heroPic">
+    </div>
+
+    <div class="introBox">
+        <i>Okay, you have proven you really have no life so you'll get access to the secret: if you click the first empty space he'll show XD.</i>
+    </div>
+
+</body>
