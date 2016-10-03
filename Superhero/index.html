@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>jQuery Mobile page</title>
+    <title>It's him</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/main.css">
@@ -23,60 +23,102 @@
             for (var i = 0; i < allPics.length; i++) {
                 allPics[i].style.visibility = "visible";
             }
+            document.getElementById("power1").innerHTML = "The kebabguy shall not prevail.";
+            document.getElementById("power2").innerHTML = "Ruler of the internet.";
+            document.getElementById("power3").innerHTML = "The king himself.";
+            document.getElementById("power4").innerHTML = "Like it says below.";
+        }
+
+        function changePage(page){
+            $.mobile.navigate(page);
         }
     </script>
 
-    <div class="introBox">
-        <i>"Once upon a time, there was a legendary creature. It lived in a cage somewhere on a big island. Then one day, while doing it's duty to protect the weak, it was brutally murdered by a evil race known as humans. But all you need to know is that you're not worthy."</i>
 
+
+    <!--main-->
+    <div data-role="page" id="mainP">
+        <div data-role="header">
+            <h1>It's him</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="introBox">
+                <i>"Once upon a time, there was a legendary creature. It lived in a cage somewhere on a big island. Then one day, while doing it's duty to protect the weak, it was brutally murdered by a evil race known as humans. But all you need to know is that you're not worthy."</i>
+
+            </div>
+            <div onclick="reveal()">
+                <div class="heroPic">
+                    <img src="Images/superhero.jpg" class="heroPic">
+                </div>
+            </div>
+            <br>
+            <div class="introBox">
+                <i id="power1">I won't show him, like I said, you're not worthy.</i>
+            </div>
+
+            <div class="heroPic">
+                <img src="Images/kebab.jpg" class="heroPic" onclick="changePage('#powerP1')">
+            </div>
+            <br>
+            <div class="introBox">
+                <i id="power2">Stil scrolling? I hope you like blue.</i>
+            </div>
+
+            <div class="heroPic">
+                <img src="Images/media.jpg" class="heroPic" onclick="changePage('#powerP2')">
+            </div>
+            <br>
+            <div class="introBox">
+                <i id="power3">Don't you have something better to do?.</i>
+            </div>
+            <div class="heroPic">
+                <img src="Images/harambe.jpg" class="heroPic" onclick="changePage('#powerP3')">
+            </div>
+            <br>
+
+            <div class="introBox">
+                <i id="power4">Okay, you have proven you really have no life so you'll get access to the secret: if you click the first empty space he'll show XD.</i>
+            </div>
+            <div class="heroPic">
+                <img src="Images/9gag.jpg" class="heroPic" onclick="window.location.href = 'http://www.m.9gag.com';">
+            </div>
+        </div>
     </div>
 
-    <div class="heroPic" onclick="reveal()">
-        <img src="Images/superhero.jpg" class="heroPic">
+    <!--power1-->
+    <div data-role="page" id="powerP1">
+        <div data-role="header">
+            <h1>Remove kebab(guy)</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="Images/media.jpg" class="heroPic" onclick="changePage('#powerP2')">
+            <div class="introBox">
+                <i>With the power to remove kebab Gormema can make all people hungry. Kebabguy made a futile attempt to stop him by handing out free kebab but this has only made him homeless.</i>
+            </div>
+        </div>
     </div>
-
-    <div class="introBox">
-        <i>I won't show him, like I said, you're not worthy.</i>
+    <!--power2-->
+    <div data-role="page" id="powerP2">
+        <div data-role="header">
+            <h1>Social media</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="Images/media.jpg" class="heroPic" onclick="changePage('#powerP2')">
+            <div class="introBox">
+                <i>As we all know, who controls social media controls the world. Gormema has ruled social media for 4 months now and nothing is capable of stopping him!</i>
+            </div>
+        </div>
     </div>
-
-    <div class="heroPic">
-        <img src="Images/superhero.jpg" class="heroPic">
+    <!--power3-->
+    <div data-role="page" id="powerP3">
+        <div data-role="header">
+            <h1>The king</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="Images/harambe.jpg" class="heroPic" onclick="changePage('#powerP2')">
+            <div class="introBox">
+                <i>The king, the one. Can't die and lives amongst the legends of the world. His memes are our dreams. And no, you're still not worthy!</i>
+            </div>
+        </div>
     </div>
-
-    <div class="introBox">
-        <i>Stil scrolling? I hope you like blue.</i>
-    </div>
-
-    <div class="heroPic">
-        <img src="Images/superhero.jpg" class="heroPic">
-    </div>
-
-    <div class="introBox">
-        <i>Don't you have something better to do?.</i>
-    </div>
-
-    <div class="heroPic">
-        <img src="Images/superhero.jpg" class="heroPic">
-    </div>
-
-    <div class="introBox">
-        <i>Would you please get a life.</i>
-    </div>
-
-    <div class="heroPic">
-        <img src="Images/superhero.jpg" class="heroPic">
-    </div>
-
-    <div class="introBox">
-        <i>I lied.</i>
-    </div>
-
-    <div class="heroPic">
-        <img src="Images/superhero.jpg" class="heroPic">
-    </div>
-
-    <div class="introBox">
-        <i>Okay, you have proven you really have no life so you'll get access to the secret: if you click the first empty space he'll show XD.</i>
-    </div>
-
 </body>
