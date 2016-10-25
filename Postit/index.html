@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Post-it</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            console.log(ev.target.id);
+            ev.dataTransfer.setData("id", ev.target.id);
+            console.log(ev.target.getBoundingClientRect().left - ev.clientX);
+            ev.dataTransfer.setData("offsetx", ev.target.getBoundingClientRect().left - ev.clientX);
+            ev.dataTransfer.setData("offsety", ev.target.getBoundingClientRect().top - ev.clientY);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            console.log((Number(ev.clientX) + Number(ev.dataTransfer.getData("offsetx"))));
+            postit = document.getElementById(ev.dataTransfer.getData("id"));
+            //ev.target.appendChild(postit);
+            var left = (Number(ev.clientX) + Number(ev.dataTransfer.getData("offsetx")));
+            var top = (Number(ev.clientY) + Number(ev.dataTransfer.getData("offsety")));
+
+            if (left < 0) {
+                left = 0;
+            }
+
+            if (top < 0) {
+                top = 0;
+            }
+
+            postit.style.left = left.toString() + "px";
+            postit.style.top = top.toString() + "px";
+        }
+    </script>
+
+    <div class="postBox" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="postit_1" class="postit" draggable="true" ondragstart="drag(event)">
+            test1
+        </div>
+        <div id="postit_2" class="postit" draggable="true" ondragstart="drag(event)">
+            test2
+        </div>
+    </div>
+</body>
+
+</html>
