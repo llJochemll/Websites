@@ -4,6 +4,16 @@
     left: 0px;
     top: 0px;
     position: absolute;
+    z-index: -1;
+}
+
+.plus {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    z-index: 9;
 }
 
 .postit {
@@ -15,4 +25,54 @@
     min-height: 100px;
     overflow: auto;
     background-color: #FFF000;
+    display:flex;
+    flex-direction:column;
+    z-index: 0;
+}
+
+.postTitle {
+    border: none;
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    width: 80%;
+    min-height: 20px;
+    background-color:rgba(0, 0, 0, 0);
+    outline: none;
+    resize: none;
+}
+
+.postZindex {
+    right: 5%;
+    width: 10%;
+    position: absolute;
+    top: 10px;
+}
+
+.postTextD {
+    border-top: 2px solid red;
+    position: absolute;
+    top: 33px;
+    bottom: 10px;
+    left: 5%;
+    right: 5%;
+    background-color:rgba(0, 0, 0, 0);
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    flex: 1;
+}
+
+.postText {
+    border: none;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0);
+    outline: none;
+    resize: none;
+    overflow: hidden;
 }

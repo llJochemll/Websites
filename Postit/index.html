@@ -10,62 +10,57 @@
 
 </head>
 
-<body>
+<body background="Images/back.jpg">
 
-
+    <img src="Images/plus.png" alt="" class="plus" onclick="addPostit()"/>
     <div class="postBox" ondrop="drop(event)" ondragover="allowDrop(event)" id="postBox">
-        <div id="postit_1" class="postit" draggable="true" ondragstart="drag(event)">
-            test1
-        </div>
-        <div id="postit_2" class="postit" draggable="true" ondragstart="drag(event)">
-            test2
-        </div>
+
     </div>
 
     <script>
         window.onload = load();
 
+        setInterval(function() {
+            save();
+        }, 1000);
+
         function load() {
             var postitString = localStorage.getItem("postitJDJ");
 
             var boxDiv = document.getElementById("postBox");
-            console.log(boxDiv);
 
             if(postitString != null){
                 var postitsO = JSON.parse(postitString);
 
                 for (i = 0; i < postitsO.length; i++) {
                     var postitO = postitsO[i];
-                    var postit = document.createElement("div");
 
-                    postit.className = "postit";
-                    postit.id = "postit_" + String(i+3);
-                    postit.style.left = String(postitO.offsetx);
-                    postit.style.top = String(postitO.offsety);
-                    postit.style.width = String(postitO.width);
-                    postit.style.height = String(postitO.height);
-
-                    postit.addEventListener('dragstart', function() {drag(event)}, false);
-
-                    boxDiv.appendChild(postit);
+                    createPostit(String(i),String(postitO.offsetx),String(postitO.offsety),String(postitO.width),String(postitO.height),String(postitO.zindex),String(postitO.title),String(postitO.text));
                 }
             }
         }
 
         function save() {
             var postits = document.getElementsByClassName("postit");
+            var postTitles = document.getElementsByClassName("postTitle");
+            var postZindexs = document.getElementsByClassName("postZindex");
+            var postTexts = document.getElementsByClassName("postText");
             var postitsO = [];
 
             for (i = 0; i < postits.length; i++) {
                 var postit = postits[i];
+                var postTitle = postTitles[i];
+                var postZindex = postZindexs[i];
+                var postText = postTexts[i];
 
                 var postitO = {
-                    title : "title",
-                    text : "test",
+                    title : postTitle.value,
+                    text : postText.value,
                     offsetx : postit.style.left,
                     offsety : postit.style.top,
                     width : postit.style.width,
-                    height : postit.style.height
+                    height : postit.style.height,
+                    zindex : postZindex.value
                 }
 
                 postitsO.push(postitO);
@@ -101,6 +96,56 @@
 
             postit.style.left = left.toString() + "px";
             postit.style.top = top.toString() + "px";
+
+            save();
+        }
+
+        function createPostit(id,left,top,width,height,zindex,title,text) {
+            var boxDiv = document.getElementById("postBox");
+
+            var postit = document.createElement("div");
+            var postTitle = document.createElement("input");
+            var postZindex = document.createElement("input");
+            var postTextD = document.createElement("div");
+            var postText = document.createElement("textarea");
+            postTitle.className = "postTitle";
+            postZindex.className = "postZindex";
+            postZindex.setAttribute("type", "number");
+            postZindex.setAttribute("value", zindex);
+            postTextD.className = "postTextD";
+            postText.className = "postText";
+
+
+            postit.className = "postit";
+            postit.id = "postit_" + id;
+            postit.style.left = left;
+            postit.style.top = top;
+            postit.style.width = width;
+            postit.style.height = height;
+            postit.style.zIndex = zindex;
+
+            postTitle.value = title;
+            postText.value = text;
+
+            postit.draggable="true";
+            postit.ondragstart="drag(\"event\")";
+
+            postit.addEventListener('dragstart', function(event) {drag(event)}, false);
+            postZindex.addEventListener('click', function(event) {setZindex(event)}, false);
+
+            postit.appendChild(postTitle);
+            postit.appendChild(postZindex);
+            postTextD.appendChild(postText);
+            postit.appendChild(postTextD);
+            boxDiv.appendChild(postit);
+        }
+
+        function setZindex(ev) {
+            ev.target.parentNode.style.zIndex = ev.target.value;
+        }
+
+        function addPostit() {
+            createPostit(String(document.getElementsByClassName("postit").length),"70px","","","","0","","");
         }
     </script>
 </body>

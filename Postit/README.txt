@@ -1,0 +1,1 @@
+Postits zijn draggable en resizable
